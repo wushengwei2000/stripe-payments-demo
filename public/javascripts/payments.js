@@ -29,10 +29,10 @@
    */
 
   // Create a Stripe client.
-  const stripe = Stripe(config.stripePublishableKey);
+  const stripe = Stripe(config.stripePublishableKey, {locale: 'zh'});
 
   // Create an instance of Elements.
-  const elements = stripe.elements();
+  const elements = stripe.elements({locale: 'zh'});
 
   // Prepare the styles for Elements.
   const style = {
@@ -709,7 +709,7 @@
     zipLabel.parentElement.classList.toggle('with-state', country === 'US');
     // Update the ZIP label to make it more relevant for each country.
     form.querySelector('label.zip span').innerText =
-      country === 'US' ? 'ZIP' : country === 'GB' ? 'Postcode' : 'Postal Code';
+      country === 'US' ? 'ZIP' : country === 'GB' ? '邮政编码' : '邮政编码';
   };
 
   // Show only the payment methods that are relevant to the selected country.

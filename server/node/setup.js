@@ -27,7 +27,7 @@ module.exports = {
           const increment = await stripe.products.create({
             id: 'increment',
             type: 'good',
-            name: 'Increment Magazine',
+            name: 'Increment 杂志',
             attributes: ['issue'],
           });
           await stripe.skus.create({
@@ -43,7 +43,7 @@ module.exports = {
           const shirt = await stripe.products.create({
             id: 'shirt',
             type: 'good',
-            name: 'Stripe Shirt',
+            name: 'Stripe T恤',
             attributes: ['size', 'gender'],
           });
           await stripe.skus.create({
@@ -59,7 +59,7 @@ module.exports = {
           const pins = await stripe.products.create({
             id: 'pins',
             type: 'good',
-            name: 'Stripe Pins',
+            name: 'Stripe 胸针',
             attributes: ['set'],
           });
           await stripe.skus.create({
