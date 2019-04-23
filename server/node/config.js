@@ -11,10 +11,10 @@ require('dotenv').config();
 
 module.exports = {
   // Default country for the checkout form.
-  country: 'US',
+  country: 'HK',
 
   // Store currency.
-  currency: 'eur',
+  currency: 'hkd',
 
   // Supported payment methods for the store.
   // Some payment methods support only a subset of currencies.
