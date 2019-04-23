@@ -270,7 +270,7 @@
     };
     // Disable the Pay button to prevent multiple click events.
     submitButton.disabled = true;
-    submitButton.textContent = 'Processing…';
+    submitButton.textContent = '订单处理中…';
 
     if (payment === 'card') {
       // Let Stripe.js handle the confirmation of the PaymentIntent with the card Element.
