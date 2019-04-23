@@ -376,7 +376,7 @@
       mainElement.classList.remove('receiver');
       // Update the note about receipt and shipping (the payment has been fully confirmed by the bank).
       confirmationElement.querySelector('.note').innerText =
-        'We just sent your receipt to your email address, and your items will be on their way shortly.';
+        '我们已将订单收据发送至您的邮箱，您的订单会在近期尽快给您寄去.';
       mainElement.classList.add('success');
     } else if (paymentIntent.status === 'processing') {
       // Success! Now waiting for payment confirmation. Update the interface to display the confirmation screen.
