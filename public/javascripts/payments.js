@@ -589,6 +589,7 @@
         'nzd',
         'sgd',
         'usd',
+        'cny',
       ],
     },
     bancontact: {
@@ -663,6 +664,7 @@
         'nzd',
         'sgd',
         'usd',
+        'cny',
       ],
     },
   };
@@ -679,7 +681,7 @@
       label = `Pay ${amount} with ${name}`;
     }
     if (paymentMethod === 'wechat') {
-      label = `Generate QR code to pay ${amount} with ${name}`;
+      label = `生成微信二维码，扫码支付 ${amount}`;
     }
     if (paymentMethod === 'sepa_debit' && bankName) {
       label = `Debit ${amount} from ${bankName}`;

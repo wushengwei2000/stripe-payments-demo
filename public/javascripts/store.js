@@ -164,8 +164,11 @@ class Store {
       };
       const quantity = randomQuantity(1, 2);
       let sku = product.skus.data[0];
-      let skuPrice = this.formatPrice(sku.price, sku.currency);
-      let lineItemPrice = this.formatPrice(sku.price * quantity, sku.currency);
+      let skuPrice = this.formatPrice(sku.price, 'cny' || sku.currency);
+      let lineItemPrice = this.formatPrice(
+        sku.price * quantity,
+        'cny' || sku.currency
+      );
       let lineItem = document.createElement('div');
       lineItem.classList.add('line-item');
       lineItem.innerHTML = `
@@ -177,7 +180,7 @@ class Store {
         <p class="count">${quantity} x ${skuPrice}</p>
         <p class="price">${lineItemPrice}</p>`;
       orderItems.appendChild(lineItem);
-      currency = sku.currency;
+      currency = 'cny' || sku.currency;
       this.lineItems.push({
         product: product.id,
         sku: sku.id,
