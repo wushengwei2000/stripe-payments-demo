@@ -139,9 +139,9 @@
   // Create the payment request.
   const paymentRequest = stripe.paymentRequest({
     country: config.stripeCountry,
-    currency: config.currency,
+    currency: 'cny' || config.currency,
     total: {
-      label: 'Total',
+      label: '总计',
       amount: store.getPaymentTotal(),
     },
     requestShipping: true,
@@ -207,9 +207,9 @@
     });
     const amount = store.formatPrice(
       response.paymentIntent.amount,
-      config.currency
+      'cny' || config.currency
     );
-    submitButton.innerText = `Pay ${amount}`;
+    submitButton.innerText = `支付 ${amount}`;
   });
 
   // Create the Payment Request Button.
@@ -291,7 +291,7 @@
       // Confirm the PaymentIntent with the IBAN Element and additional SEPA Debit source data.
       const {error} = await stripe.createSource(iban, {
         type: 'sepa_debit',
-        currency: 'eur',
+        currency: 'cny',
         owner: {
           name,
           email,
@@ -439,7 +439,7 @@
         const receiverInfo = confirmationElement.querySelector(
           '.receiver .info'
         );
-        let amount = store.formatPrice(source.amount, config.currency);
+        let amount = store.formatPrice(source.amount, 'cny' || config.currency);
         switch (source.type) {
           case 'ach_credit_transfer':
             // Display the ACH Bank Transfer information to the user.
@@ -555,7 +555,7 @@
 
     // Create the PaymentIntent with the cart details.
     const response = await store.createPaymentIntent(
-      config.currency,
+      'cny' || config.currency,
       store.getLineItems()
     );
     paymentIntent = response.paymentIntent;
@@ -669,7 +669,10 @@
 
   // Update the main button to reflect the payment method being selected.
   const updateButtonLabel = (paymentMethod, bankName) => {
-    let amount = store.formatPrice(store.getPaymentTotal(), config.currency);
+    let amount = store.formatPrice(
+      store.getPaymentTotal(),
+      'cny' || config.currency
+    );
     let name = paymentMethods[paymentMethod].name;
     let label = `Pay ${amount}`;
     if (paymentMethod !== 'card') {
@@ -720,7 +723,9 @@
         input.value === 'card' ||
           (config.paymentMethods.includes(input.value) &&
             paymentMethods[input.value].countries.includes(country) &&
-            paymentMethods[input.value].currencies.includes(config.currency))
+            paymentMethods[input.value].currencies.includes(
+              'cny' || config.currency
+            ))
       );
     }
 

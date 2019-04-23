@@ -16,47 +16,47 @@
 <body>
   <div id="main" class="loading">
     <header>
-      <a class="shop" href="/">Stripe Payments Demo</a>
-      <a class="github" href="https://github.com/stripe/stripe-payments-demo">View on GitHub</a>
+      <a class="shop" href="/">Stripe 支付演示</a>
+      <a class="github" href="https://github.com/stripe/stripe-payments-demo">GitHub 源代码</a>
     </header>
     <div id="checkout">
       <div id="payment-request">
         <div id="payment-request-button"></div>
       </div>
       <form id="payment-form" method="POST" action="/orders">
-        <p class="instruction">Complete your shipping and payment details below</p>
+        <p class="instruction">填写完成您的送货和付款信息</p>
         <section>
-          <h2>Shipping &amp; Billing Information</h2>
+          <h2>送货和账单地址</h2>
           <fieldset class="with-state">
             <label>
-              <span>Name</span>
+              <span>姓名</span>
               <input name="name" class="field" placeholder="Jenny Rosen" required>
             </label>
             <label>
-              <span>Email</span>
+              <span>邮箱</span>
               <input name="email" type="email" class="field" placeholder="jenny@example.com" required>
             </label>
             <label>
-              <span>Address</span>
+              <span>地址</span>
               <input name="address" class="field" placeholder="185 Berry Street Suite 550">
             </label>
             <label>
-              <span>City</span>
+              <span>城市</span>
               <input name="city" class="field" placeholder="San Francisco">
             </label>
             <label class="state">
-              <span>State</span>
+              <span>省份/州</span>
               <input name="state" class="field" placeholder="CA">
             </label>
             <label class="zip">
-              <span>ZIP</span>
+              <span>邮编</span>
               <input name="postal_code" class="field" placeholder="94107">
             </label>
             <label class="select">
-              <span>Country</span>
+              <span>国家</span>
               <div id="country" class="field US">
                 <select name="country">
-                  <option value="AU">Australia</option>
+                  <option value="AU">澳大利亚</option>
                   <option value="AT">Austria</option>
                   <option value="BE">Belgium</option>
                   <option value="BR">Brazil</option>
@@ -66,7 +66,7 @@
                   <option value="FI">Finland</option>
                   <option value="FR">France</option>
                   <option value="DE">Germany</option>
-                  <option value="HK">Hong Kong</option>
+                  <option value="HK">香港</option>
                   <option value="IE">Ireland</option>
                   <option value="IT">Italy</option>
                   <option value="JP">Japan</option>
@@ -81,32 +81,32 @@
                   <option value="SE">Sweden</option>
                   <option value="CH">Switzerland</option>
                   <option value="GB">United Kingdom</option>
-                  <option value="US" selected="selected">United States</option>
+                  <option value="US" selected="selected">美国</option>
                 </select>
               </div>
             </label>
           </fieldset>
-          <p class="tip">Select another country to see different payment options.</p>
+          <p class="tip">选择不同的国家以显示不同的支付方式.</p>
         </section>
         <section>
-          <h2>Payment Information</h2>
+          <h2>付款方式</h2>
           <nav id="payment-methods">
             <ul>
               <li>
                 <input type="radio" name="payment" id="payment-card" value="card" checked>
-                <label for="payment-card">Card</label>
+                <label for="payment-card">信用卡</label>
               </li>
               <li>
                 <input type="radio" name="payment" id="payment-ach_credit_transfer" value="ach_credit_transfer" checked>
-                <label for="payment-ach_credit_transfer">Bank Transfer</label>
+                <label for="payment-ach_credit_transfer">银行转账（ACH）</label>
               </li>
               <li>
                 <input type="radio" name="payment" id="payment-alipay" value="alipay">
-                <label for="payment-alipay">Alipay</label>
+                <label for="payment-alipay">支付宝</label>
               </li>
               <li>
                 <input type="radio" name="payment" id="payment-bancontact" value="bancontact">
-                <label for="payment-bancontact">Bancontact</label>
+                <label for="payment-bancontact">Bancontact(比利时)</label>
               </li>
               <li>
                 <input type="radio" name="payment" id="payment-eps" value="eps">
@@ -134,14 +134,14 @@
               </li>
               <li>
                 <input type="radio" name="payment" id="payment-wechat" value="wechat">
-                <label for="payment-wechat">WeChat Pay</label>
+                <label for="payment-wechat">微信支付</label>
               </li>
             </ul>
           </nav>
           <div class="payment-info card visible">
             <fieldset>
               <label>
-                <span>Card</span>
+                <span>信用卡</span>
                 <div id="card-element" class="field"></div>
               </label>
             </fieldset>
@@ -153,9 +153,9 @@
                 <div id="iban-element" class="field"></div>
               </label>
             </fieldset>
-            <p class="notice">By providing your IBAN and confirming this payment, you’re authorizing Payments Demo and Stripe, our payment
-              provider, to send instructions to your bank to debit your account. You’re entitled to a refund under the terms
-              and conditions of your agreement with your bank.</p>
+            <p class="notice">By providing your IBAN and confirming this payment, you’re authorizing Payments Demo and Stripe,
+              our payment provider, to send instructions to your bank to debit your account. You’re entitled to a refund
+              under the terms and conditions of your agreement with your bank.</p>
           </div>
           <div class="payment-info ideal">
             <fieldset>
@@ -173,10 +173,10 @@
           </div>
           <div class="payment-info wechat">
             <div id="wechat-qrcode"></div>
-            <p class="notice">Click the button below to generate a QR code for WeChat.</p>
+            <p class="notice">点击按钮生成微信支付二维码.</p>
           </div>
         </section>
-        <button type="submit">Pay</button>
+        <button type="submit">付款</button>
       </form>
       <div id="card-errors" class="element-errors"></div>
       <div id="iban-errors" class="element-errors"></div>
@@ -206,40 +206,40 @@
   </div>
   <div id="summary">
     <header>
-      <h1>Order Summary</h1>
+      <h1>你的订单</h1>
     </header>
     <div id="order-items"></div>
     <div id="order-total">
       <div class="line-item subtotal">
-        <p class="label">Subtotal</p>
+        <p class="label">小计</p>
         <p class="price" data-subtotal></p>
       </div>
       <div class="line-item shipping">
-        <p class="label">Shipping</p>
-        <p class="price">Free</p>
+        <p class="label">配送运费</p>
+        <p class="price">免费</p>
       </div>
       <div class="line-item demo">
         <div id="demo">
-          <p class="label">Demo in test mode</p>
-          <p class="note">You can copy and paste the following test cards to trigger different scenarios:</p>
+          <p class="label">显示测试卡</p>
+          <p class="note">你可以复制黏贴下面的测试卡号来测试不同的支付场景:</p>
           <table class="note">
             <tr>
-              <td>Default US card:</td>
+              <td>默认美国用卡:</td>
               <td class="card-number">4242<span></span>4242<span></span>4242<span></span>4242</td>
             </tr>
             <tr>
-              <td><a href="https://stripe.com/guides/strong-customer-authentication" target="_blank">3D Secure auth</a> required:</td>
+              <td><a href="https://stripe.com/guides/strong-customer-authentication" target="_blank">3D 安全验证</a> 用卡:</td>
               <td class="card-number">4000<span></span>0000<span></span>0000<span></span>3063</td>
             </tr>
-            </table>
-          <p class="note"> 
-            See the <a href="https://stripe.com/docs/testing#cards" target="_blank">docs</a> for a full list of test cards. 
-            Non-card payments will redirect to test pages.
+          </table>
+          <p class="note">
+            浏览 Stripe <a href="https://stripe.com/docs/testing#cards" target="_blank">文档</a>，里面包含更多完整的测试用卡列表. Non-card payments
+            will redirect to test pages.
           </p>
         </div>
       </div>
       <div class="line-item total">
-        <p class="label">Total</p>
+        <p class="label">总计</p>
         <p class="price" data-total></p>
       </div>
     </div>
